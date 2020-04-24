@@ -1,5 +1,5 @@
 //
-//  DecodableExtensions.swift
+//  Decodable+Extensions.swift
 //  mvvm-r
 //
 //  Created by Mehmet Salih Aslan on 23.04.2020.
