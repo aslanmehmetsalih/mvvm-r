@@ -14,14 +14,14 @@ protocol SplashViewModelProtocol: class {
 
 final class SplashViewModel: SplashViewModelProtocol {
     
-    private weak var router: SplashRouter.Routes?
+    private weak var router: SplashRouter?
     
-    init(router: SplashRouter.Routes) {
+    init(router: SplashRouter) {
         self.router = router
     }
     
     func viewDidLoad() {
-        router?.openSearchMoviesController()
+        router?.placeOnWindowSearchMoviesController()
     }
     
 }

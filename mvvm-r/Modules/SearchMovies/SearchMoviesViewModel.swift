@@ -29,6 +29,7 @@ protocol SearchMoviesViewModelProtocol: SearchMoviesViewModelDataSource, SearchM
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
+    func didSelectItem(at indexPath: IndexPath)
     
 }
 
@@ -56,7 +57,7 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     private var movies: [Movie] = []
     private var cellItems: [MovieCellProtocol] = []
     
-    weak var router: SearchMoviesRouter?
+    let router: SearchMoviesRouter?
     
     init(router: SearchMoviesRouter) {
         self.router = router
@@ -69,6 +70,11 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+    }
+    
+    func didSelectItem(at indexPath: IndexPath) {
+        let movie = movies[indexPath.row]
+        router?.pushMovieDetailController(movie: movie)
     }
     
     private func fetchMovies(page: Int) {

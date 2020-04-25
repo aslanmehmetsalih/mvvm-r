@@ -28,7 +28,7 @@ final class SearchMoviesController: UIViewController {
         return collectionView
     }()
     
-    var viewModel: SearchMoviesViewModelProtocol?
+    let viewModel: SearchMoviesViewModelProtocol?
     
     init(viewModel: SearchMoviesViewModelProtocol) {
         self.viewModel = viewModel
@@ -57,8 +57,6 @@ final class SearchMoviesController: UIViewController {
     }
     
     private func setupViews() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
         navigationItem.title = viewModel?.title
         view.backgroundColor = .white
     }
@@ -91,6 +89,9 @@ extension SearchMoviesController: UISearchBarDelegate {
 
 extension SearchMoviesController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.didSelectItem(at: indexPath)
+    }
     
 }
 

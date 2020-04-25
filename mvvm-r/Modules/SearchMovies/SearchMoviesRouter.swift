@@ -6,6 +6,8 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import UIKit
-
-final class SearchMoviesRouter: Router<SearchMoviesController> {}
+final class SearchMoviesRouter: Router<SearchMoviesController>, SearchMoviesRouter.Routes {
+    
+     typealias Routes = MovieDetailRoute
+    
+}
