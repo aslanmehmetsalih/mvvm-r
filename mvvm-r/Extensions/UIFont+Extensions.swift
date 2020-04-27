@@ -18,4 +18,8 @@ extension UIFont {
         return .systemFont(ofSize: size, weight: .semibold)
     }
     
+    static func bold(of size: CGFloat) -> UIFont {
+        return .boldSystemFont(ofSize: size)
+    }
+    
 }

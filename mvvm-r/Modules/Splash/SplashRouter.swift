@@ -6,9 +6,8 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-class SplashRouter: Router<SplashViewController>, SplashRouter.Routes {
+final class SplashRouter: Router<SplashViewController>, SplashRouter.Routes {
  
-    typealias Routes = SearchMoviesWindowRoute
-
+    typealias Routes = SearchMoviesRoute
     
 }

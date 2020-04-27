@@ -1,14 +1,14 @@
 //
-//  MovieCell.swift
+//  MovieDetailTopView.swift
 //  mvvm-r
 //
-//  Created by Mehmet Salih Aslan on 24.04.2020.
+//  Created by Mehmet Salih Aslan on 26.04.2020.
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
 import UIKit
 
-class MovieCell: UICollectionViewCell, ReusableView {
+class MovieDetailTopView: ShadowView {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -46,12 +46,15 @@ class MovieCell: UICollectionViewCell, ReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews()
-        setupViews()
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
         addSubviews()
         setupViews()
     }
@@ -80,24 +83,15 @@ class MovieCell: UICollectionViewCell, ReusableView {
         layer.cornerRadius = 6
         imageView.layer.cornerRadius = 6
         imageView.clipsToBounds = true
-        
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.15
-        layer.shadowOffset = .zero
     }
     
-    func set(data viewModel: MovieCellProtocol) {
-        imageView.setImage(viewModel.imageUrl)
-        titleLabel.text = viewModel.title
-        subTitleLabel.text = viewModel.subtitle
-        yearLabel.text = viewModel.year
+    func set(data viewModel: MovieDetailTopViewProtocol?) {
+        if let url = viewModel?.imageUrl {
+            imageView.setImage(url)
+        }
+        titleLabel.text = viewModel?.title
+        subTitleLabel.text = viewModel?.subtitle
+        yearLabel.text = viewModel?.year
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView.image = nil
-        titleLabel.text = nil
-        subTitleLabel.text = nil
-        yearLabel.text = nil
-    }
 }

@@ -28,7 +28,7 @@ final class SearchMoviesController: UIViewController {
         return collectionView
     }()
     
-    var viewModel: SearchMoviesViewModelProtocol?
+    let viewModel: SearchMoviesViewModelProtocol
     
     init(viewModel: SearchMoviesViewModelProtocol) {
         self.viewModel = viewModel
@@ -57,20 +57,18 @@ final class SearchMoviesController: UIViewController {
     }
     
     private func setupViews() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
-        navigationItem.title = viewModel?.title
+        navigationItem.title = viewModel.title
         view.backgroundColor = .white
     }
     
     private func setViewModelEvents() {
-        viewModel?.setLoading = { [weak self] showLoading in
+        viewModel.setLoading = { [weak self] showLoading in
             showLoading ? self?.showLoadingDialog() : self?.hideLoadingDialog()
         }
-        viewModel?.didSuccessFetchMovies = { [weak self] in
+        viewModel.didSuccessFetchMovies = { [weak self] in
             self?.collectionView.reloadData()
         }
-        viewModel?.showErrorDialog = { message in
+        viewModel.showErrorDialog = { message in
             SnackHelper.showSnack(message: message)
         }
     }
@@ -80,34 +78,33 @@ final class SearchMoviesController: UIViewController {
 extension SearchMoviesController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel?.searchBarSearchButtonClicked(searchBar)
+        viewModel.searchBarSearchButtonClicked(searchBar)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel?.searchBarCancelButtonClicked(searchBar)
+        viewModel.searchBarCancelButtonClicked(searchBar)
     }
     
 }
 
 extension SearchMoviesController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath)
+    }
     
 }
 
 extension SearchMoviesController: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let numberOfItems = viewModel?.numberOfItems ?? 0
+        let numberOfItems = viewModel.numberOfItems
         return numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieCell = collectionView.dequeueReusableCell(for: indexPath)
-        guard let item = viewModel?.cellItem(for: indexPath) else { return cell }
+        let item = viewModel.cellItem(for: indexPath)
         cell.set(data: item)
         return cell
     }

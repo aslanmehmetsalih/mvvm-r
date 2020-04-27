@@ -8,24 +8,19 @@
 
 import UIKit
 
-protocol SearchMoviesWindowRoute: class {
-    var searchMoviesTransition: Transition { get }
-    func openSearchMoviesController()
+protocol SearchMoviesRoute: class {
+    func placeOnWindowSearchMoviesController()
 }
 
-extension SearchMoviesWindowRoute where Self: RouterProtocol {
+extension SearchMoviesRoute where Self: RouterProtocol {
     
-    var searchMoviesTransition: Transition {
-        return PlaceOnWindowTransition()
-    }
-    
-    func openSearchMoviesController() {
+    func placeOnWindowSearchMoviesController() {
         let router = SearchMoviesRouter()
         let viewModel = SearchMoviesViewModel(router: router)
         let viewController = SearchMoviesController(viewModel: viewModel)
         router.viewController = viewController
         
-        let transition = searchMoviesTransition
+        let transition = PlaceOnWindowTransition()
         router.openTransition = transition
         
         let navigationController = BaseNavigationController(rootViewController: viewController)
