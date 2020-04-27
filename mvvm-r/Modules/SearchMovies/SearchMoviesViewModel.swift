@@ -57,7 +57,7 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     private var movies: [Movie] = []
     private var cellItems: [MovieCellProtocol] = []
     
-    let router: SearchMoviesRouter?
+    let router: SearchMoviesRouter
     
     init(router: SearchMoviesRouter) {
         self.router = router
@@ -74,7 +74,7 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     
     func didSelectItem(at indexPath: IndexPath) {
         let movie = movies[indexPath.row]
-        router?.pushMovieDetailController(movie: movie)
+        router.pushMovieDetailController(movie: movie)
     }
     
     private func fetchMovies(page: Int) {

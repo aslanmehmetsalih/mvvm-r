@@ -46,8 +46,7 @@ final class MovieDetailController: UIViewController {
     private let directorView = InfoView()
     private let productionView = InfoView()
     
-    
-    let viewModel: MovieDetailProtocol?
+    let viewModel: MovieDetailProtocol
     
     init(viewModel: MovieDetailProtocol) {
         self.viewModel = viewModel
@@ -63,7 +62,11 @@ final class MovieDetailController: UIViewController {
         addSubViews()
         setupViews()
         setViewModelEvents()
-        viewModel?.viewDidLoad()
+        viewModel.viewDidLoad()
+    }
+    
+    deinit {
+        debugPrint("deinit \(self)")
     }
     
     private func addSubViews() {
@@ -98,20 +101,20 @@ final class MovieDetailController: UIViewController {
     }
     
     private func setViewModelEvents() {
-        viewModel?.setLoading = { [weak self] showLoading in
+        viewModel.setLoading = { [weak self] showLoading in
             showLoading ? self?.showLoadingDialog() : self?.hideLoadingDialog()
         }
-        viewModel?.didSuccessFetchMovieDetail = { [weak self] in
-            self?.topView.set(data: self?.viewModel?.topViewModel)
-            self?.imdbView.set(data: self?.viewModel?.imdbViewModel)
-            self?.avardsView.set(data: self?.viewModel?.avardsViewModel)
-            self?.actorsView.set(data: self?.viewModel?.actorsViewModel)
-            self?.releasedView.set(data: self?.viewModel?.releasedViewModel)
-            self?.writerView.set(data: self?.viewModel?.writerViewModel)
-            self?.directorView.set(data: self?.viewModel?.directorViewModel)
-            self?.productionView.set(data: self?.viewModel?.productionViewModel)
+        viewModel.didSuccessFetchMovieDetail = { [weak self] in
+            self?.topView.set(data: self?.viewModel.topViewModel)
+            self?.imdbView.set(data: self?.viewModel.imdbViewModel)
+            self?.avardsView.set(data: self?.viewModel.avardsViewModel)
+            self?.actorsView.set(data: self?.viewModel.actorsViewModel)
+            self?.releasedView.set(data: self?.viewModel.releasedViewModel)
+            self?.writerView.set(data: self?.viewModel.writerViewModel)
+            self?.directorView.set(data: self?.viewModel.directorViewModel)
+            self?.productionView.set(data: self?.viewModel.productionViewModel)
         }
-        viewModel?.showErrorDialog = { message in
+        viewModel.showErrorDialog = { message in
             SnackHelper.showSnack(message: message)
         }
     }
@@ -121,7 +124,7 @@ final class MovieDetailController: UIViewController {
 extension MovieDetailController {
     
     @IBAction func imdbButtonTouchUpInside(_ sender: Any) {
-        viewModel?.imdbButtonTouchUpInside()
+        viewModel.imdbButtonTouchUpInside()
     }
     
 }

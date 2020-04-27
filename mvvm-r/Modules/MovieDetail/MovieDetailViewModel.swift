@@ -51,13 +51,17 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     var showErrorDialog: StringClosure?
     var didSuccessFetchMovieDetail: EmptyClosure?
     
-    let router: MovieDetailRouter?
+    let router: MovieDetailRouter
     private var movie: Movie
     private var movieDetail: MovieDetail?
     
     init(router: MovieDetailRouter, movie: Movie) {
         self.router = router
         self.movie = movie
+    }
+    
+    deinit {
+        debugPrint("deinit \(self)")
     }
     
     func viewDidLoad() {
@@ -76,7 +80,7 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     
     func imdbButtonTouchUpInside() {
         guard let imdbId = movie.imdbId else { return }
-        router?.openIMDB(imdbId: imdbId)
+        router.openIMDB(imdbId: imdbId)
     }
     
     private func set(movieDetail: MovieDetail) {

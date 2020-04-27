@@ -10,4 +10,8 @@ final class MovieDetailRouter: Router<MovieDetailController>, MovieDetailRouter.
     
     typealias Routes = ImdbRoute
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+    
 }

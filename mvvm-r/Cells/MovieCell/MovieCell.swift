@@ -86,13 +86,11 @@ class MovieCell: UICollectionViewCell, ReusableView {
         layer.shadowOffset = .zero
     }
     
-    func set(data with: MovieCellProtocol) {
-        if let url = with.imageUrl {
-            imageView.setImage(url)
-        }
-        titleLabel.text = with.title
-        subTitleLabel.text = with.subtitle
-        yearLabel.text = with.year
+    func set(data viewModel: MovieCellProtocol) {
+        imageView.setImage(viewModel.imageUrl)
+        titleLabel.text = viewModel.title
+        subTitleLabel.text = viewModel.subtitle
+        yearLabel.text = viewModel.year
     }
     
     override func prepareForReuse() {
