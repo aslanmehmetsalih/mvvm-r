@@ -7,8 +7,8 @@
 //
 
 enum MovieType: String, Decodable {
-    case movie      = "movie"
-    case series     = "series"
-    case episode    = "episode"
-    case game       = "game"
+    case movie
+    case series
+    case episode
+    case game
 }

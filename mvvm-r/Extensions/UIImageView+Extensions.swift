@@ -18,5 +18,4 @@ extension UIImageView {
         self.kf.setImage(with: url, placeholder: placeholder, options: [UIImageView.fadeAnimation])
     }
     
-    
 }

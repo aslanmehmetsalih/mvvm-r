@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieDetailImdbViewDataSource: class {
+protocol MovieDetailImdbViewDataSource: AnyObject {
     
     var rating: String? { get }
     var votes: String? { get }

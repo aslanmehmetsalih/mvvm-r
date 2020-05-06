@@ -8,16 +8,16 @@
 
 import UIKit
 
-protocol SearchMoviesViewModelDataSource: class {
+protocol SearchMoviesViewModelDataSource: AnyObject {
     
     var title: String { get }
     var numberOfItems: Int { get }
-    func cellItem(for indexPath: IndexPath) -> MovieCellProtocol
     
+    func cellItem(for indexPath: IndexPath) -> MovieCellProtocol
     
 }
 
-protocol SearchMoviesViewModelEventSource: class {
+protocol SearchMoviesViewModelEventSource: AnyObject {
     
     var setLoading: BoolClosure? { get set }
     var didSuccessFetchMovies: EmptyClosure? { get set }
@@ -85,14 +85,14 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
         if page == 0 {
             setLoading?(true)
         }
-        let request = SearchMovieRequest(keyword: keyword, page: page+1)
+        let request = SearchMovieRequest(keyword: keyword, page: page + 1)
         request.fetch(success: { [weak self] (response) in
             self?.setLoading?(false)
             if page == 0 {
                 self?.movies.removeAll()
                 self?.cellItems.removeAll()
             }
-            self?.page = page+1
+            self?.page = page + 1
             if let search = response.search {
                 self?.movies.append(contentsOf: search)
                 if let cellItems = response.search?.map({ MovieCellViewModel(with: $0) }) {

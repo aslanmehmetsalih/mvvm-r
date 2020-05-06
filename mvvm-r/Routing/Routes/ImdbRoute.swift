@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ImdbRoute: class {
+protocol ImdbRoute: AnyObject {
     func openIMDB(imdbId: String)
 }
 

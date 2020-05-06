@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieDetailTopViewDataSource: class {
+protocol MovieDetailTopViewDataSource: AnyObject {
     
     var imageUrl: URL? { get }
     var title: String? { get }

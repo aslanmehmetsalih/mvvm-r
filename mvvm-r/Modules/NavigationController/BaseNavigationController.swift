@@ -17,7 +17,8 @@ class BaseNavigationController: UINavigationController {
         navigationBar.tintColor = .black
         navigationBar.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 16, weight: .semibold),
                                              .foregroundColor: UIColor.white]
-        UIBarButtonItem.appearance().setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 16, weight: .semibold)], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 16, weight: .semibold)],
+                                                            for: .normal)
         if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()

@@ -19,8 +19,7 @@ final class FadeAnimator: NSObject, Animator {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if isPresenting {
             present(using: transitionContext)
-        }
-        else {
+        } else {
             dismiss(using: transitionContext)
         }
     }

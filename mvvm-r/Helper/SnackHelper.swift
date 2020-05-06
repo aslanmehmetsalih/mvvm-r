@@ -27,7 +27,7 @@ class SnackHelper {
         var attributes = EKAttributes.bottomToast
         attributes.hapticFeedbackType = .success
         attributes.positionConstraints.safeArea = .empty(fillSafeArea: true)
-        let backgroundColor = EKColor.init(light: .white, dark: .black)
+        let backgroundColor = EKColor(light: .white, dark: .black)
         attributes.entryBackground = .color(color: backgroundColor)
 
         SwiftEntryKit.display(entry: contentView, using: attributes)

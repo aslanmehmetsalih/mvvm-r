@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieCellDataSource: class {
+protocol MovieCellDataSource: AnyObject {
     
     var imageUrl: URL? { get }
     var title: String? { get }

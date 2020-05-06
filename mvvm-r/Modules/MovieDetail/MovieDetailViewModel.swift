@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieDetailDataSource: class {
+protocol MovieDetailDataSource: AnyObject {
     
     var topViewModel: MovieDetailTopViewProtocol? { get }
     var imdbViewModel: MovieDetailImdbViewProtocol? { get }
@@ -21,7 +21,7 @@ protocol MovieDetailDataSource: class {
     
 }
 
-protocol MovieDetailEventSource: class {
+protocol MovieDetailEventSource: AnyObject {
     
     var setLoading: BoolClosure? { get set }
     var didSuccessFetchMovieDetail: EmptyClosure? { get set }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SearchMoviesRoute: class {
+protocol SearchMoviesRoute: AnyObject {
     func placeOnWindowSearchMoviesController()
 }
 

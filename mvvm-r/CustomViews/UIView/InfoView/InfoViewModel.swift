@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol InfoViewDataSource: class {
+protocol InfoViewDataSource: AnyObject {
     
     var title: String? { get }
     var subtitle: String? { get }

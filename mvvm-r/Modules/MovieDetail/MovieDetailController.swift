@@ -53,9 +53,11 @@ final class MovieDetailController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    //swiftlint:disable fatal_error unavailable_function
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //swiftlint:enable fatal_error unavailable_function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +125,7 @@ final class MovieDetailController: UIViewController {
 
 extension MovieDetailController {
     
-    @IBAction func imdbButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func imdbButtonTouchUpInside(_ sender: Any) {
         viewModel.imdbButtonTouchUpInside()
     }
     

@@ -35,9 +35,11 @@ final class SearchMoviesController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    //swiftlint:disable fatal_error unavailable_function
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //swiftlint:enable fatal_error unavailable_function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,15 +113,16 @@ extension SearchMoviesController: UICollectionViewDataSource {
     
 }
 
+//swiftlint:disable line_length
 extension SearchMoviesController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width
         if UIDevice.current.userInterfaceIdiom == .pad {
-            let cellWidth = (width-60)/2
+            let cellWidth = (width - 60) / 2
             return CGSize(width: cellWidth, height: 120)
         } else {
-            let cellWidth = width-40
+            let cellWidth = width - 40
             return CGSize(width: cellWidth, height: 120)
         }
     }
@@ -137,3 +140,4 @@ extension SearchMoviesController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+//swiftlint:enable line_length

@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A17E14A2462E9D700715718 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7A17E1492462E9D700715718 /* .swiftlint.yml */; };
 		7A84FA122451C4F200F2C3A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA112451C4F200F2C3A0 /* AppDelegate.swift */; };
 		7A84FA142451C4F200F2C3A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA132451C4F200F2C3A0 /* SceneDelegate.swift */; };
 		7A84FA1B2451C4F400F2C3A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A84FA1A2451C4F400F2C3A0 /* Assets.xcassets */; };
 		7A84FA1E2451C4F400F2C3A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A84FA1C2451C4F400F2C3A0 /* LaunchScreen.storyboard */; };
-		7A84FA292451C4F500F2C3A0 /* mvvm_rTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA282451C4F500F2C3A0 /* mvvm_rTests.swift */; };
-		7A84FA342451C4F500F2C3A0 /* mvvm_rUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA332451C4F500F2C3A0 /* mvvm_rUITests.swift */; };
 		7A84FA432451C9AC00F2C3A0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7A84FA422451C9AC00F2C3A0 /* Alamofire */; };
 		7A84FA492451CB6700F2C3A0 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA482451CB6700F2C3A0 /* RequestProtocol.swift */; };
 		7A84FA4C2451CCD800F2C3A0 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA4B2451CCD800F2C3A0 /* RequestManager.swift */; };
@@ -100,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A17E1492462E9D700715718 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		7A84FA0E2451C4F200F2C3A0 /* mvvm-r.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mvvm-r.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A84FA112451C4F200F2C3A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A84FA132451C4F200F2C3A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,10 +107,8 @@
 		7A84FA1D2451C4F400F2C3A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A84FA1F2451C4F400F2C3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A84FA242451C4F500F2C3A0 /* mvvm-rTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mvvm-rTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A84FA282451C4F500F2C3A0 /* mvvm_rTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mvvm_rTests.swift; sourceTree = "<group>"; };
 		7A84FA2A2451C4F500F2C3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A84FA2F2451C4F500F2C3A0 /* mvvm-rUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mvvm-rUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A84FA332451C4F500F2C3A0 /* mvvm_rUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mvvm_rUITests.swift; sourceTree = "<group>"; };
 		7A84FA352451C4F500F2C3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A84FA482451CB6700F2C3A0 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		7A84FA4B2451CCD800F2C3A0 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
@@ -209,6 +207,7 @@
 		7A84FA052451C4F200F2C3A0 = {
 			isa = PBXGroup;
 			children = (
+				7A17E1492462E9D700715718 /* .swiftlint.yml */,
 				7A84FA102451C4F200F2C3A0 /* mvvm-r */,
 				7A84FA272451C4F500F2C3A0 /* mvvm-rTests */,
 				7A84FA322451C4F500F2C3A0 /* mvvm-rUITests */,
@@ -252,7 +251,6 @@
 		7A84FA272451C4F500F2C3A0 /* mvvm-rTests */ = {
 			isa = PBXGroup;
 			children = (
-				7A84FA282451C4F500F2C3A0 /* mvvm_rTests.swift */,
 				7A84FA2A2451C4F500F2C3A0 /* Info.plist */,
 			);
 			path = "mvvm-rTests";
@@ -261,7 +259,6 @@
 		7A84FA322451C4F500F2C3A0 /* mvvm-rUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7A84FA332451C4F500F2C3A0 /* mvvm_rUITests.swift */,
 				7A84FA352451C4F500F2C3A0 /* Info.plist */,
 			);
 			path = "mvvm-rUITests";
@@ -576,6 +573,7 @@
 				7A84FA0A2451C4F200F2C3A0 /* Sources */,
 				7A84FA0B2451C4F200F2C3A0 /* Frameworks */,
 				7A84FA0C2451C4F200F2C3A0 /* Resources */,
+				7A17E14B2462E9E700715718 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -684,6 +682,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A17E14A2462E9D700715718 /* .swiftlint.yml in Resources */,
 				7AF96EAC24524F0100807AFC /* Splash.storyboard in Resources */,
 				7A9C43C72454F77E00840B7E /* Colors.xcassets in Resources */,
 				7A84FA1E2451C4F400F2C3A0 /* LaunchScreen.storyboard in Resources */,
@@ -706,6 +705,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A17E14B2462E9E700715718 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A84FA0A2451C4F200F2C3A0 /* Sources */ = {
@@ -781,7 +801,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A84FA292451C4F500F2C3A0 /* mvvm_rTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,7 +808,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A84FA342451C4F500F2C3A0 /* mvvm_rUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

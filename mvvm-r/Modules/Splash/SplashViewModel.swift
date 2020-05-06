@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-protocol SplashViewModelProtocol: class {
+protocol SplashViewModelProtocol: AnyObject {
     
     func viewDidLoad()
     

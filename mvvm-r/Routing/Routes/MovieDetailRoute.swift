@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MovieDetailRoute: class {
+protocol MovieDetailRoute: AnyObject {
     func pushMovieDetailController(movie: Movie)
 }
 

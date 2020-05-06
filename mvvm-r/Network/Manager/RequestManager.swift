@@ -26,7 +26,11 @@ class RequestManager {
         print("Request Method: \(request.method.rawValue)")
         print("Request Parameters: \(parameters)")
         
-        let request = AF.request(apiUrl+request.path, method: request.method, parameters: parameters, encoding: URLEncoding.default, headers: generateHeader())
+        let request = AF.request(apiUrl + request.path,
+                                 method: request.method,
+                                 parameters: parameters,
+                                 encoding: URLEncoding.default,
+                                 headers: generateHeader())
         request.validate()
         request.responseData { (response) in
             if let value = response.value {

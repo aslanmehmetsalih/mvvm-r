@@ -61,7 +61,7 @@ class MovieCell: UICollectionViewCell, ReusableView {
         imageView.leadingToSuperview().constant = 12
         imageView.topToSuperview().constant = 12
         imageView.bottomToSuperview().constant = -12
-        imageView.aspectRatio(2/3)
+        imageView.aspectRatio(2 / 3)
         
         addSubview(stackView)
         stackView.centerYToSuperview()

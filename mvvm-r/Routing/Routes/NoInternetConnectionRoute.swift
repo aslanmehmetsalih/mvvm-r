@@ -15,7 +15,9 @@ protocol NoInternetConnectionRoute {
 extension NoInternetConnectionRoute where Self: RouterProtocol {
     
     func openNoInternetConnectionAlert() {
-        let alertViewController = UIAlertController(title: "Title", message: "No internet connection", preferredStyle: .alert)
+        let alertViewController = UIAlertController(title: "Title",
+                                                    message: "No internet connection",
+                                                    preferredStyle: .alert)
         viewController?.present(alertViewController, animated: true, completion: nil)
     }
 }
