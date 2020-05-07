@@ -104,7 +104,5 @@ custom_rules:
   protocol_name:
     name: Protocol Name
     message: Protocol name should start with an uppercase character
-    regex: "(protocol )([A-Z]{1})+(\\w{0,})+(: +\\w{0,})?( {)+(.?)"
-    match_kinds:
-      - identifier_name
-    severity: error
+    regex: "protocol [A-Z]{1}.{0,}"
+    severity: warning

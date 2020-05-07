@@ -50,7 +50,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 //swiftlint:enable unused_optional_binding
-
-protocol salih {
-    
-}
