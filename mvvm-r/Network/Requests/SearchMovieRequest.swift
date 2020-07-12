@@ -8,18 +8,17 @@
 
 import Alamofire
 
-struct SearchMovieRequest: ResponseObjectProtocol {
+struct SearchMovieRequest: RequestProtocol {
     
-    typealias ResponseObjectType = ArrayResponse<Movie>
+    typealias ResponseType = ArrayResponse<Movie>
     
     var path: String = ""
     var method: HTTPMethod = .get
-    var parameters: Parameters?
+    var parameters: Parameters = [:]
     
     init(keyword: String, page: Int) {
-        parameters = [:]
-        parameters?["s"] = keyword
-        parameters?["page"] = page
+        parameters["s"] = keyword
+        parameters["page"] = page
     }
     
 }

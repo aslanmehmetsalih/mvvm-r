@@ -70,9 +70,6 @@ final class SearchMoviesController: UIViewController {
         viewModel.didSuccessFetchMovies = { [weak self] in
             self?.collectionView.reloadData()
         }
-        viewModel.showErrorDialog = { message in
-            SnackHelper.showSnack(message: message)
-        }
     }
     
 }
@@ -107,7 +104,7 @@ extension SearchMoviesController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieCell = collectionView.dequeueReusableCell(for: indexPath)
         let item = viewModel.cellItem(for: indexPath)
-        cell.set(data: item)
+        cell.set(viewModel: item)
         return cell
     }
     

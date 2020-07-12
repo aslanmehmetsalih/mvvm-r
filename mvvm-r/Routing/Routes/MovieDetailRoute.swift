@@ -16,7 +16,8 @@ extension MovieDetailRoute where Self: RouterProtocol {
     
     func pushMovieDetailController(movie: Movie) {
         let router = MovieDetailRouter()
-        let viewModel = MovieDetailViewModel(router: router, movie: movie)
+        let dataProvider = ApiDataProvider()
+        let viewModel = MovieDetailViewModel(router: router, dataProvider: dataProvider, movie: movie)
         let viewController = MovieDetailController(viewModel: viewModel)
         router.viewController = viewController
         

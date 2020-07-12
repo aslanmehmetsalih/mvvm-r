@@ -85,7 +85,7 @@ class MovieDetailTopView: ShadowView {
         imageView.clipsToBounds = true
     }
     
-    func set(data viewModel: MovieDetailTopViewProtocol?) {
+    func set(viewModel: MovieDetailTopViewProtocol?) {
         if let url = viewModel?.imageUrl {
             imageView.setImage(url)
         }

@@ -26,7 +26,7 @@ class MovieDetailTopViewModel: MovieDetailTopViewProtocol {
     var subtitle: String?
     var year: String?
     
-    init(with movieDetail: MovieDetail) {
+    init(movieDetail: MovieDetail) {
         if let poster = movieDetail.poster {
             imageUrl = URL(string: poster)
         }

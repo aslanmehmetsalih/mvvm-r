@@ -16,7 +16,8 @@ extension SearchMoviesRoute where Self: RouterProtocol {
     
     func placeOnWindowSearchMoviesController() {
         let router = SearchMoviesRouter()
-        let viewModel = SearchMoviesViewModel(router: router)
+        let dataProvider = ApiDataProvider()
+        let viewModel = SearchMoviesViewModel(router: router, dataProvider: dataProvider)
         let viewController = SearchMoviesController(viewModel: viewModel)
         router.viewController = viewController
         

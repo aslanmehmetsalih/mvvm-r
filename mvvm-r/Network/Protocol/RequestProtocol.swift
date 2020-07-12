@@ -10,8 +10,28 @@ import Alamofire
 
 protocol RequestProtocol {
     
+    associatedtype ResponseType: Decodable
+            
     var path: String { get }
     var method: HTTPMethod { get }
-    var parameters: Parameters? { get }
-    
+    var parameters: Parameters { get }
+    var encoding: ParameterEncoding { get }
+    var url: String { get }
+}
+
+extension RequestProtocol {
+    var encoding: ParameterEncoding {
+        switch method {
+        case .get:
+            return URLEncoding.default
+        default:
+            return JSONEncoding.default
+        }
+    }
+}
+
+extension RequestProtocol {
+    var url: String {
+        return "http://www.omdbapi.com/" + path
+    }
 }

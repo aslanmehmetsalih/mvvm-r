@@ -26,7 +26,7 @@ class MovieCellViewModel: MovieCellProtocol {
     var subtitle: String?
     var year: String?
     
-    init(with movie: Movie) {
+    init(movie: Movie) {
         if let poster = movie.poster {
             imageUrl = URL(string: poster)
         }

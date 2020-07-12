@@ -7,7 +7,5 @@
 //
 
 final class SearchMoviesRouter: Router<SearchMoviesController>, SearchMoviesRouter.Routes {
-    
      typealias Routes = MovieDetailRoute
-    
 }

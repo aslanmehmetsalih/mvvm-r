@@ -8,17 +8,16 @@
 
 import Alamofire
 
-class GetMovieDetailRequest: ResponseObjectProtocol {
+class GetMovieDetailRequest: RequestProtocol {
     
-    typealias ResponseObjectType = MovieDetail
+    typealias ResponseType = MovieDetail
     
     var path: String = ""
     var method: HTTPMethod = .get
-    var parameters: Parameters?
+    var parameters: Parameters = [:]
     
     init(id: String) {
-        parameters = [:]
-        parameters?["i"] = id
+        parameters["i"] = id
     }
     
 }

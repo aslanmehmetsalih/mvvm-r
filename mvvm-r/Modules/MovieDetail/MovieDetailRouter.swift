@@ -7,11 +7,5 @@
 //
 
 final class MovieDetailRouter: Router<MovieDetailController>, MovieDetailRouter.Routes {
-    
     typealias Routes = ImdbRoute
-    
-    deinit {
-        debugPrint("deinit \(self)")
-    }
-    
 }

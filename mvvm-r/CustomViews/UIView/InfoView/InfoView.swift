@@ -64,7 +64,7 @@ class InfoView: ShadowView {
         stackView.addArrangedSubview(subtitleLabel)
     }
     
-    func set(data viewModel: InfoViewProtocol?) {
+    func set(viewModel: InfoViewProtocol?) {
         titleLabel.text = viewModel?.title
         subtitleLabel.text = viewModel?.subtitle
     }

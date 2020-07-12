@@ -1,19 +1,18 @@
 //
-//  BaseResponse.swift
+//  MovieRating.swift
 //  mvvm-r
 //
 //  Created by Mehmet Salih Aslan on 23.04.2020.
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-struct BaseResponse: Decodable {
+struct MovieRating: Decodable {
     
-    let response: ResultType
-    let error: String?
+    let source: String?
+    let value: String?
     
     enum CodingKeys: String, CodingKey {
-        case response   = "Response"
-        case error      = "Error"
+        case source = "Source"
+        case value  = "Value"
     }
-    
 }

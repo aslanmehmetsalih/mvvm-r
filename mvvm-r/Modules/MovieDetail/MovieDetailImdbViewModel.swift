@@ -24,7 +24,7 @@ class MovieDetailImdbViewModel: MovieDetailImdbViewProtocol {
     var votes: String?
     var runtime: String?
     
-    init(with movieDetail: MovieDetail) {
+    init(movieDetail: MovieDetail) {
         rating = movieDetail.imdbRating
         votes = movieDetail.imdbVotes
         runtime = movieDetail.runtime

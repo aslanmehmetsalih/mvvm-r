@@ -9,7 +9,6 @@
 import Foundation
 
 protocol MovieDetailDataSource: AnyObject {
-    
     var topViewModel: MovieDetailTopViewProtocol? { get }
     var imdbViewModel: MovieDetailImdbViewProtocol? { get }
     var avardsViewModel: InfoViewProtocol? { get }
@@ -18,15 +17,11 @@ protocol MovieDetailDataSource: AnyObject {
     var writerViewModel: InfoViewProtocol? { get }
     var directorViewModel: InfoViewProtocol? { get }
     var productionViewModel: InfoViewProtocol? { get }
-    
 }
 
 protocol MovieDetailEventSource: AnyObject {
-    
     var setLoading: BoolClosure? { get set }
     var didSuccessFetchMovieDetail: EmptyClosure? { get set }
-    var showErrorDialog: StringClosure? { get set }
-    
 }
 
 protocol MovieDetailProtocol: MovieDetailDataSource, MovieDetailEventSource {
@@ -48,33 +43,33 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     var productionViewModel: InfoViewProtocol?
     
     var setLoading: BoolClosure?
-    var showErrorDialog: StringClosure?
     var didSuccessFetchMovieDetail: EmptyClosure?
     
-    let router: MovieDetailRouter
+    private let router: MovieDetailRouter
+    private let dataProvider: DataProviderProtocol
     private var movie: Movie
     private var movieDetail: MovieDetail?
     
-    init(router: MovieDetailRouter, movie: Movie) {
+    init(router: MovieDetailRouter, dataProvider: DataProviderProtocol, movie: Movie) {
         self.router = router
+        self.dataProvider = dataProvider
         self.movie = movie
-    }
-    
-    deinit {
-        debugPrint("deinit \(self)")
     }
     
     func viewDidLoad() {
         guard let imdbId = movie.imdbId else { return }
         setLoading?(true)
         let request = GetMovieDetailRequest(id: imdbId)
-        request.fetch(success: { [weak self] (response) in
-            self?.set(movieDetail: response)
-            self?.didSuccessFetchMovieDetail?()
-            self?.setLoading?(false)
-        }) { [weak self] (error) in
-            self?.setLoading?(false)
-            self?.showErrorDialog?(error.message ?? "")
+        dataProvider.getData(for: request) { [weak self] (result) in
+            guard let self = self else { return }
+            self.setLoading?(false)
+            switch result {
+            case .success(let response):
+                self.set(movieDetail: response)
+                self.didSuccessFetchMovieDetail?()
+            case .failure(let error):
+                SnackHelper.showSnack(message: error.localizedDescription)
+            }
         }
     }
     
@@ -85,9 +80,9 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     
     private func set(movieDetail: MovieDetail) {
         self.movieDetail = movieDetail
-        topViewModel = MovieDetailTopViewModel(with: movieDetail)
+        topViewModel = MovieDetailTopViewModel(movieDetail: movieDetail)
         
-        imdbViewModel = MovieDetailImdbViewModel(with: movieDetail)
+        imdbViewModel = MovieDetailImdbViewModel(movieDetail: movieDetail)
         
         let avardsViewModel = InfoViewModel()
         avardsViewModel.title = "Avards"

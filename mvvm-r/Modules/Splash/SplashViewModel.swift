@@ -7,21 +7,21 @@
 //
 
 protocol SplashViewModelProtocol: AnyObject {
-    
     func viewDidLoad()
-    
 }
 
 final class SplashViewModel: SplashViewModelProtocol {
     
-    private weak var router: SplashRouter?
+    let router: SplashRouter
+    let dataProvider: DataProviderProtocol
     
-    init(router: SplashRouter) {
+    init(router: SplashRouter, dataProvider: DataProviderProtocol) {
         self.router = router
+        self.dataProvider = dataProvider
     }
     
     func viewDidLoad() {
-        router?.placeOnWindowSearchMoviesController()
+        router.placeOnWindowSearchMoviesController()
     }
     
 }

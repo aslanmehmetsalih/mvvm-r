@@ -44,6 +44,8 @@ class MovieCell: UICollectionViewCell, ReusableView {
         return label
     }()
     
+    private var viewModel: MovieCellProtocol?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -55,6 +57,18 @@ class MovieCell: UICollectionViewCell, ReusableView {
         addSubviews()
         setupViews()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+        titleLabel.text = nil
+        subTitleLabel.text = nil
+        yearLabel.text = nil
+    }
+}
+
+// MARK: - UI
+extension MovieCell {
     
     private func addSubviews() {
         addSubview(imageView)
@@ -86,18 +100,16 @@ class MovieCell: UICollectionViewCell, ReusableView {
         layer.shadowOffset = .zero
     }
     
-    func set(data viewModel: MovieCellProtocol) {
+}
+
+// MARK: - DataSet
+extension MovieCell {
+    
+    func set(viewModel: MovieCellProtocol) {
         imageView.setImage(viewModel.imageUrl)
         titleLabel.text = viewModel.title
         subTitleLabel.text = viewModel.subtitle
         yearLabel.text = viewModel.year
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView.image = nil
-        titleLabel.text = nil
-        subTitleLabel.text = nil
-        yearLabel.text = nil
-    }
 }

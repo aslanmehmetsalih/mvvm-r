@@ -17,7 +17,8 @@ final class SplashViewController: UIViewController {
         let router = SplashRouter()
         router.viewController = self
         
-        let viewModel = SplashViewModel(router: router)
+        let dataProvider = ApiDataProvider()
+        let viewModel = SplashViewModel(router: router, dataProvider: dataProvider)
         self.viewModel = viewModel
         
         self.viewModel?.viewDidLoad()

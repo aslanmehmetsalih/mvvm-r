@@ -9,28 +9,21 @@
 import UIKit
 
 protocol SearchMoviesViewModelDataSource: AnyObject {
-    
     var title: String { get }
     var numberOfItems: Int { get }
     
     func cellItem(for indexPath: IndexPath) -> MovieCellProtocol
-    
 }
 
 protocol SearchMoviesViewModelEventSource: AnyObject {
-    
     var setLoading: BoolClosure? { get set }
     var didSuccessFetchMovies: EmptyClosure? { get set }
-    var showErrorDialog: StringClosure? { get set }
-    
 }
 
 protocol SearchMoviesViewModelProtocol: SearchMoviesViewModelDataSource, SearchMoviesViewModelEventSource {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
     func didSelectItem(at indexPath: IndexPath)
-    
 }
 
 final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
@@ -40,7 +33,6 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     }
     
     var setLoading: BoolClosure?
-    var showErrorDialog: StringClosure?
     var didSuccessFetchMovies: EmptyClosure?
     
     var numberOfItems: Int {
@@ -57,10 +49,12 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     private var movies: [Movie] = []
     private var cellItems: [MovieCellProtocol] = []
     
-    let router: SearchMoviesRouter
+    private let router: SearchMoviesRouter
+    private let dataProvider: DataProviderProtocol
     
-    init(router: SearchMoviesRouter) {
+    init(router: SearchMoviesRouter, dataProvider: DataProviderProtocol) {
         self.router = router
+        self.dataProvider = dataProvider
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -77,33 +71,38 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
         router.pushMovieDetailController(movie: movie)
     }
     
-    private func fetchMovies(page: Int) {
+    func fetchMovies(page: Int) {
         guard let keyword = self.keyword, keyword.count > 1 else {
-            showErrorDialog?("Lütfen en az 2 karakter giriniz.")
+            SnackHelper.showSnack(message: "Lütfen en az 2 karakter giriniz.")
             return
         }
         if page == 0 {
             setLoading?(true)
         }
         let request = SearchMovieRequest(keyword: keyword, page: page + 1)
-        request.fetch(success: { [weak self] (response) in
-            self?.setLoading?(false)
+        dataProvider.getData(for: request) { [weak self] (result) in
+            guard let self = self else { return }
             if page == 0 {
-                self?.movies.removeAll()
-                self?.cellItems.removeAll()
+                self.setLoading?(false)
             }
-            self?.page = page + 1
-            if let search = response.search {
-                self?.movies.append(contentsOf: search)
-                if let cellItems = response.search?.map({ MovieCellViewModel(with: $0) }) {
-                    self?.cellItems.append(contentsOf: cellItems)
+            switch result {
+            case .success(let response):
+                if page == 0 {
+                    self.movies.removeAll()
+                    self.cellItems.removeAll()
                 }
-            }
-            self?.didSuccessFetchMovies?()
-        }) { [weak self] (error) in
-            self?.setLoading?(false)
-            if self?.page == 0 {
-                self?.showErrorDialog?(error.message ?? "")
+                self.page = page + 1
+                if let search = response.search {
+                    self.movies.append(contentsOf: search)
+                    if let cellItems = response.search?.map({ MovieCellViewModel(movie: $0) }) {
+                        self.cellItems.append(contentsOf: cellItems)
+                    }
+                }
+                self.didSuccessFetchMovies?()
+            case .failure(let error):
+                if page == 0 {
+                    SnackHelper.showSnack(message: error.localizedDescription)
+                }
             }
         }
     }

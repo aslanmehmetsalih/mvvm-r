@@ -116,7 +116,7 @@ class MovieDetailImdbView: ShadowView {
         stackView.addArrangedSubview(runtimeStackView)
     }
     
-    func set(data viewModel: MovieDetailImdbViewProtocol?) {
+    func set(viewModel: MovieDetailImdbViewProtocol?) {
         ratingLabel.text = viewModel?.rating
         votesLabel.text = viewModel?.votes
         runtimeLabel.text = viewModel?.runtime

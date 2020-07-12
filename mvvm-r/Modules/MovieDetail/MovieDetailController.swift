@@ -107,17 +107,14 @@ final class MovieDetailController: UIViewController {
             showLoading ? self?.showLoadingDialog() : self?.hideLoadingDialog()
         }
         viewModel.didSuccessFetchMovieDetail = { [weak self] in
-            self?.topView.set(data: self?.viewModel.topViewModel)
-            self?.imdbView.set(data: self?.viewModel.imdbViewModel)
-            self?.avardsView.set(data: self?.viewModel.avardsViewModel)
-            self?.actorsView.set(data: self?.viewModel.actorsViewModel)
-            self?.releasedView.set(data: self?.viewModel.releasedViewModel)
-            self?.writerView.set(data: self?.viewModel.writerViewModel)
-            self?.directorView.set(data: self?.viewModel.directorViewModel)
-            self?.productionView.set(data: self?.viewModel.productionViewModel)
-        }
-        viewModel.showErrorDialog = { message in
-            SnackHelper.showSnack(message: message)
+            self?.topView.set(viewModel: self?.viewModel.topViewModel)
+            self?.imdbView.set(viewModel: self?.viewModel.imdbViewModel)
+            self?.avardsView.set(viewModel: self?.viewModel.avardsViewModel)
+            self?.actorsView.set(viewModel: self?.viewModel.actorsViewModel)
+            self?.releasedView.set(viewModel: self?.viewModel.releasedViewModel)
+            self?.writerView.set(viewModel: self?.viewModel.writerViewModel)
+            self?.directorView.set(viewModel: self?.viewModel.directorViewModel)
+            self?.productionView.set(viewModel: self?.viewModel.productionViewModel)
         }
     }
     

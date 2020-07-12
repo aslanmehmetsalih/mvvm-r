@@ -101,8 +101,8 @@ custom_rules:
       - identifier
     severity: error
     
-  protocol_name:
-    name: Protocol Name
-    message: Protocol name should start with an uppercase character
-    regex: "protocol [A-Z]{1}.{0,}"
-    severity: warning
+#  protocol_name:
+#    name: Protocol Name
+#    message: Protocol name should start with an uppercase character
+#    regex: "protocol [A-Z]{1}.{0,}"
+#    severity: warning
