@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import TinyConstraints
+import Utilities
 
-class MovieCell: UICollectionViewCell, ReusableView {
+public class MovieCell: UICollectionViewCell, ReusableView {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -58,7 +60,7 @@ class MovieCell: UICollectionViewCell, ReusableView {
         setupViews()
     }
     
-    override func prepareForReuse() {
+    public override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
         titleLabel.text = nil
@@ -103,7 +105,7 @@ extension MovieCell {
 }
 
 // MARK: - DataSet
-extension MovieCell {
+public extension MovieCell {
     
     func set(viewModel: MovieCellProtocol) {
         imageView.setImage(viewModel.imageUrl)

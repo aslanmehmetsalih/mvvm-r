@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIFont {
+public extension UIFont {
     
     static func regular(of size: CGFloat) -> UIFont {
         return .systemFont(ofSize: size)

@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import DataProvider
+import ApiDataProvider
 
-protocol MovieCellDataSource: AnyObject {
+public protocol MovieCellDataSource: AnyObject {
     
     var imageUrl: URL? { get }
     var title: String? { get }
@@ -18,16 +18,16 @@ protocol MovieCellDataSource: AnyObject {
     
 }
 
-protocol MovieCellProtocol: MovieCellDataSource {}
+public protocol MovieCellProtocol: MovieCellDataSource {}
 
-class MovieCellViewModel: MovieCellProtocol {
+public class MovieCellViewModel: MovieCellProtocol {
     
-    var imageUrl: URL?
-    var title: String?
-    var subtitle: String?
-    var year: String?
+    public var imageUrl: URL?
+    public var title: String?
+    public var subtitle: String?
+    public var year: String?
     
-    init(movie: Movie) {
+    public init(movie: Movie) {
         if let poster = movie.poster {
             imageUrl = URL(string: poster)
         }

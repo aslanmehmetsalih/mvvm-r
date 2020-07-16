@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DataProvider
+import ApiDataProvider
 
 protocol MovieDetailDataSource: AnyObject {
     var topViewModel: MovieDetailTopViewProtocol? { get }

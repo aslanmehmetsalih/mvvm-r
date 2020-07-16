@@ -12,16 +12,16 @@
       },
       {
         "package": "Kingfisher",
-        "repositoryURL": "https://github.com/onevcat/Kingfisher.git",
+        "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
           "branch": null,
-          "revision": "910d808ade2a576e1a292ceb458a6fa43f67f594",
-          "version": "5.14.0"
+          "revision": "1339ebea9498ef6c3fc75cc195d7163d7c7167f9",
+          "version": "5.14.1"
         }
       },
       {
         "package": "NVActivityIndicatorView",
-        "repositoryURL": "https://github.com/ninjaprox/NVActivityIndicatorView.git",
+        "repositoryURL": "https://github.com/ninjaprox/NVActivityIndicatorView",
         "state": {
           "branch": null,
           "revision": "4a4726d15367d82bd3e9e1f01625bd76dbbb0c98",
@@ -39,7 +39,7 @@
       },
       {
         "package": "SwiftEntryKit",
-        "repositoryURL": "https://github.com/huri000/SwiftEntryKit.git",
+        "repositoryURL": "https://github.com/huri000/SwiftEntryKit",
         "state": {
           "branch": null,
           "revision": "796981500de29ee72f72ef8e9c46eaed2fe6364e",
@@ -48,7 +48,7 @@
       },
       {
         "package": "TinyConstraints",
-        "repositoryURL": "https://github.com/roberthein/TinyConstraints.git",
+        "repositoryURL": "https://github.com/roberthein/TinyConstraints",
         "state": {
           "branch": null,
           "revision": "f413ea53b886de81b925eeb37a14538fe6ae4912",

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UICollectionView {
+public extension UICollectionView {
     
     func register<T: UICollectionViewCell>(_: T.Type) where T: ReusableView {
         register(T.self, forCellWithReuseIdentifier: T.defaultReuseIdentifier)

@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-extension UIImageView {
+public extension UIImageView {
     
     static let fadeAnimation = KingfisherOptionsInfoItem.transition(.fade(0.2))
     

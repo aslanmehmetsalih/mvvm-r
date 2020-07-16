@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import DataProvider
+import ApiDataProvider
+import UIComponents
 
 protocol SearchMoviesViewModelDataSource: AnyObject {
     var title: String { get }

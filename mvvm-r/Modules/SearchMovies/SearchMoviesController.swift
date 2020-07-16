@@ -8,6 +8,7 @@
 
 import UIKit
 import TinyConstraints
+import UIComponents
 
 final class SearchMoviesController: UIViewController {
     
