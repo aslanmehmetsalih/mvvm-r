@@ -6,6 +6,8 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
+import DataProvider
+
 protocol SplashViewModelProtocol: AnyObject {
     func viewDidLoad()
 }

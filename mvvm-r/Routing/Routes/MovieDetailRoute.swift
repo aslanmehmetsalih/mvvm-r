@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataProvider
 
 protocol MovieDetailRoute: AnyObject {
     func pushMovieDetailController(movie: Movie)

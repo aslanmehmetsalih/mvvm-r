@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataProvider
 
 final class SplashViewController: UIViewController {
     

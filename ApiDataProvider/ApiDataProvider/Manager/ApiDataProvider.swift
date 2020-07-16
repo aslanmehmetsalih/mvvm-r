@@ -8,9 +8,11 @@
 
 import Alamofire
 
-struct ApiDataProvider: DataProviderProtocol {
+public struct ApiDataProvider: DataProviderProtocol {
     
     private let omdbApiKey = "bf3a219a"
+    
+    public init() {}
     
     private func createRequest<T: RequestProtocol>(_ request: T) -> DataRequest {
         var parameters = request.parameters
@@ -23,7 +25,7 @@ struct ApiDataProvider: DataProviderProtocol {
         return request
     }
     
-    func getData<T: RequestProtocol>(for request: T, result: DataProviderResult<T.ResponseType>?) {
+    public func getData<T: RequestProtocol>(for request: T, result: DataProviderResult<T.ResponseType>?) {
         let request = createRequest(request)
         request.validate()
         request.responseData { (response) in

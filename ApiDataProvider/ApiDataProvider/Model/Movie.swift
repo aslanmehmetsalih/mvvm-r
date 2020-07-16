@@ -6,13 +6,13 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-struct Movie: Decodable {
+public struct Movie: Decodable {
     
-    let title: String?
-    let year: String?
-    let imdbId: String?
-    let type: MovieType?
-    let poster: String?
+    public let title: String?
+    public let year: String?
+    public let imdbId: String?
+    public let type: MovieType?
+    public let poster: String?
     
     enum CodingKeys: String, CodingKey {
         case title      = "Title"

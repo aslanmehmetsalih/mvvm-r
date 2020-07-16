@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-enum ErrorCode: String {
+public enum ErrorCode: String {
     case connection = "error.connection"
     case local = "error.local"
     case unknown = "error.unknown"

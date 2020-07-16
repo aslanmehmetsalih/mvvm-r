@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-extension MovieType {
+public extension MovieType {
     
     var displayName: String {
         switch self {

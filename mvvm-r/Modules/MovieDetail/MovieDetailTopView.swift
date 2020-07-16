@@ -12,7 +12,7 @@ class MovieDetailTopView: ShadowView {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .systemGray5
+        imageView.backgroundColor = .lightGray
         return imageView
     }()
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataProvider
 
 protocol SearchMoviesRoute: AnyObject {
     func placeOnWindowSearchMoviesController()

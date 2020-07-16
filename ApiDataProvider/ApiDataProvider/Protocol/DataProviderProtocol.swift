@@ -8,9 +8,9 @@
 
 import Alamofire
 
-typealias DataProviderResult<T: Decodable> = ((Result<T, Error>) -> Void)
+public typealias DataProviderResult<T: Decodable> = ((Result<T, Error>) -> Void)
 
-protocol DataProviderProtocol {
+public protocol DataProviderProtocol {
         
     func getData<T: RequestProtocol>(for request: T,
                                      result: DataProviderResult<T.ResponseType>?)

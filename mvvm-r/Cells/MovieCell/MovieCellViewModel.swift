@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DataProvider
 
 protocol MovieCellDataSource: AnyObject {
     

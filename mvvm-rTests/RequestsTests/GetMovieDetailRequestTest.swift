@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import mvvm_r
+@testable import DataProvider
 
 class GetMovieDetailRequestTest: XCTestCase {
 

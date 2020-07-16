@@ -9,6 +9,7 @@
 import UIKit
 
 //swiftlint:disable unused_optional_binding
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

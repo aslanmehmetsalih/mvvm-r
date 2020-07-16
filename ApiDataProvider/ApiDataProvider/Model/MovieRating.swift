@@ -6,10 +6,10 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-struct MovieRating: Decodable {
+public struct MovieRating: Decodable {
     
-    let source: String?
-    let value: String?
+    public let source: String?
+    public let value: String?
     
     enum CodingKeys: String, CodingKey {
         case source = "Source"

@@ -8,7 +8,7 @@
 
 import Alamofire
 
-protocol RequestProtocol {
+public protocol RequestProtocol {
     
     associatedtype ResponseType: Decodable
             
@@ -20,7 +20,7 @@ protocol RequestProtocol {
 }
 
 extension RequestProtocol {
-    var encoding: ParameterEncoding {
+    public var encoding: ParameterEncoding {
         switch method {
         case .get:
             return URLEncoding.default
@@ -31,7 +31,7 @@ extension RequestProtocol {
 }
 
 extension RequestProtocol {
-    var url: String {
+    public var url: String {
         return "http://www.omdbapi.com/" + path
     }
 }

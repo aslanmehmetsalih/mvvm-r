@@ -6,34 +6,34 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-struct MovieDetail: Decodable {
+public struct MovieDetail: Decodable {
     
-    let title: String?
-    let year: String?
-    let rated: String?
-    let released: String?
-    let runtime: String?
-    let genre: String?
-    let director: String?
-    let writer: String?
-    let actors: String?
-    let plot: String?
-    let language: String?
-    let country: String?
-    let awards: String?
-    let poster: String?
-    let ratings: [MovieRating]?
-    let metascore: String?
-    let imdbRating: String?
-    let imdbVotes: String?
-    let imdbID: String?
-    let type: MovieType?
-    let totalSeasons: String?
-    let dvd: String?
-    let boxOffice: String?
-    let production: String?
-    let website: String?
-    let response: String?
+    public let title: String?
+    public let year: String?
+    public let rated: String?
+    public let released: String?
+    public let runtime: String?
+    public let genre: String?
+    public let director: String?
+    public let writer: String?
+    public let actors: String?
+    public let plot: String?
+    public let language: String?
+    public let country: String?
+    public let awards: String?
+    public let poster: String?
+    public let ratings: [MovieRating]?
+    public let metascore: String?
+    public let imdbRating: String?
+    public let imdbVotes: String?
+    public let imdbID: String?
+    public let type: MovieType?
+    public let totalSeasons: String?
+    public let dvd: String?
+    public let boxOffice: String?
+    public let production: String?
+    public let website: String?
+    public let response: String?
     
     enum CodingKeys: String, CodingKey {
         case title          = "Title"

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import mvvm_r
+@testable import DataProvider
 
 class MockDataProvider: DataProviderProtocol {
     

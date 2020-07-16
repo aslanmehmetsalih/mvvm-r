@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataProvider
 
 protocol SearchMoviesViewModelDataSource: AnyObject {
     var title: String { get }
