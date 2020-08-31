@@ -15,12 +15,16 @@ public struct ApiDataProvider: DataProviderProtocol {
     public init() {}
     
     private func createRequest<T: RequestProtocol>(_ request: T) -> DataRequest {
-        var parameters = request.parameters
+        let adapter = ApiRequestAdapter(method: request.method,
+                                        parameters: request.parameters,
+                                        encoding: request.encoding,
+                                        url: request.url)
+        var parameters = adapter.parameters
         parameters["apikey"] = omdbApiKey
-        let request = AF.request(request.url,
-                                 method: request.method,
+        let request = AF.request(adapter.url,
+                                 method: adapter.method,
                                  parameters: parameters,
-                                 encoding: request.encoding,
+                                 encoding: adapter.encoding,
                                  headers: nil)
         return request
     }

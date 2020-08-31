@@ -13,8 +13,8 @@ public class GetMovieDetailRequest: RequestProtocol {
     public typealias ResponseType = MovieDetail
     
     public var path: String = ""
-    public var method: HTTPMethod = .get
-    public var parameters: Parameters = [:]
+    public var method: RequestMethod = .get
+    public var parameters: RequestParameters = [:]
     
     public init(id: String) {
         parameters["i"] = id

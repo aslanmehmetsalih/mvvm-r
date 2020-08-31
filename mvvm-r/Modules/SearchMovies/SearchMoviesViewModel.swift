@@ -96,9 +96,8 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
                 self.page = page + 1
                 if let search = response.search {
                     self.movies.append(contentsOf: search)
-                    if let cellItems = response.search?.map({ MovieCellViewModel(movie: $0) }) {
-                        self.cellItems.append(contentsOf: cellItems)
-                    }
+                    let cellItems = search.map({ MovieCellViewModel(movie: $0) })
+                    self.cellItems.append(contentsOf: cellItems)
                 }
                 self.didSuccessFetchMovies?()
             case .failure(let error):

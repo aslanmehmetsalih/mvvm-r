@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import DataProvider
+@testable import ApiDataProvider
 
 class MockDataProvider: DataProviderProtocol {
     

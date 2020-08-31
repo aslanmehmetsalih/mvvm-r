@@ -29,6 +29,8 @@ class SearchMoviesViewModelTests: XCTestCase {
             XCTAssert(false)
         }
         viewModel.fetchMovies(page: 1)
+        viewModel.fetchMovies(page: 2)
+        viewModel.fetchMovies(page: 10)
     }
 
 }

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import DataProvider
+@testable import ApiDataProvider
 
 class SearchMovieRequestTest: XCTestCase {
     

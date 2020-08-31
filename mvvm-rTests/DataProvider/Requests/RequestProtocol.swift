@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mobillium. All rights reserved.
 //
 
-@testable import DataProvider
+@testable import ApiDataProvider
 
 extension RequestProtocol {
     

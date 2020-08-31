@@ -6,26 +6,24 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import Alamofire
-
 public protocol RequestProtocol {
     
     associatedtype ResponseType: Decodable
             
     var path: String { get }
-    var method: HTTPMethod { get }
-    var parameters: Parameters { get }
-    var encoding: ParameterEncoding { get }
+    var method: RequestMethod { get }
+    var parameters: RequestParameters { get }
+    var encoding: RequestEncoding { get }
     var url: String { get }
 }
 
 extension RequestProtocol {
-    public var encoding: ParameterEncoding {
+    public var encoding: RequestEncoding {
         switch method {
         case .get:
-            return URLEncoding.default
+            return .url
         default:
-            return JSONEncoding.default
+            return .json
         }
     }
 }

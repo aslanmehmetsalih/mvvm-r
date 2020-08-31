@@ -108,6 +108,7 @@ extension MovieCell {
 public extension MovieCell {
     
     func set(viewModel: MovieCellProtocol) {
+        self.viewModel = viewModel
         imageView.setImage(viewModel.imageUrl)
         titleLabel.text = viewModel.title
         subTitleLabel.text = viewModel.subtitle

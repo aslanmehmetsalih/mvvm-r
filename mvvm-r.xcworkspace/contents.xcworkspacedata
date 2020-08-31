@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SwiftPackageManager">
-   </FileRef>
-   <FileRef
       location = "group:mvvm-r.xcodeproj">
    </FileRef>
    <FileRef
@@ -15,5 +12,8 @@
    </FileRef>
    <FileRef
       location = "group:ApiDataProvider/ApiDataProvider.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SwiftPackageManager">
    </FileRef>
 </Workspace>
