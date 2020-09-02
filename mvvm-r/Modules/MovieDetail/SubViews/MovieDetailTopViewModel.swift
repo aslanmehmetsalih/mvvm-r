@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ApiDataProvider
 
 protocol MovieDetailTopViewDataSource: AnyObject {
     

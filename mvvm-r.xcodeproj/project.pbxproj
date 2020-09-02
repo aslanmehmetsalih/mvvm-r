@@ -29,6 +29,9 @@
 		7A84FA932451EA4200F2C3A0 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA902451EA4200F2C3A0 /* Transition.swift */; };
 		7A84FA962451EAC800F2C3A0 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA952451EAC800F2C3A0 /* FadeAnimator.swift */; };
 		7A84FA982451EB3200F2C3A0 /* NoInternetConnectionRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A84FA972451EB3200F2C3A0 /* NoInternetConnectionRoute.swift */; };
+		7A85A9922500263300A7CE02 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A85A9912500263300A7CE02 /* Configuration.plist */; };
+		7A85A9942500263F00A7CE02 /* Configuration-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A85A9932500263F00A7CE02 /* Configuration-Debug.plist */; };
+		7A85A9962500264900A7CE02 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A85A9952500264900A7CE02 /* Configuration.swift */; };
 		7A8E3C4624536D0D00C09337 /* PlaceOnWindowTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C4524536D0D00C09337 /* PlaceOnWindowTransition.swift */; };
 		7A8E3C4E2453733700C09337 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C4D2453733700C09337 /* BaseNavigationController.swift */; };
 		7A8E3C5124537C1600C09337 /* SnackHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C5024537C1600C09337 /* SnackHelper.swift */; };
@@ -130,6 +133,10 @@
 		7A84FA902451EA4200F2C3A0 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		7A84FA952451EAC800F2C3A0 /* FadeAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
 		7A84FA972451EB3200F2C3A0 /* NoInternetConnectionRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetConnectionRoute.swift; sourceTree = "<group>"; };
+		7A85A98A2500213100A7CE02 /* mvvm-r-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mvvm-r-Bridging-Header.h"; sourceTree = "<group>"; };
+		7A85A9912500263300A7CE02 /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		7A85A9932500263F00A7CE02 /* Configuration-Debug.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Configuration-Debug.plist"; sourceTree = "<group>"; };
+		7A85A9952500264900A7CE02 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		7A8E3C4524536D0D00C09337 /* PlaceOnWindowTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOnWindowTransition.swift; sourceTree = "<group>"; };
 		7A8E3C4D2453733700C09337 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		7A8E3C5024537C1600C09337 /* SnackHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackHelper.swift; sourceTree = "<group>"; };
@@ -270,6 +277,7 @@
 		7A84FA102451C4F200F2C3A0 /* mvvm-r */ = {
 			isa = PBXGroup;
 			children = (
+				7A85A98E2500239600A7CE02 /* Configuration */,
 				7A9C43C82454F7A200840B7E /* Values */,
 				7A9C43A72454E01D00840B7E /* CustomViews */,
 				7A8E3C5C24537F3600C09337 /* Constants */,
@@ -280,10 +288,11 @@
 				7A84FA752451E4F600F2C3A0 /* Modules */,
 				7A84FA112451C4F200F2C3A0 /* AppDelegate.swift */,
 				7A84FA132451C4F200F2C3A0 /* SceneDelegate.swift */,
+				7A85A98A2500213100A7CE02 /* mvvm-r-Bridging-Header.h */,
 				7A84FA1A2451C4F400F2C3A0 /* Assets.xcassets */,
-				7A84FA1C2451C4F400F2C3A0 /* LaunchScreen.storyboard */,
-				7A84FA1F2451C4F400F2C3A0 /* Info.plist */,
 				7A9C43C62454F77E00840B7E /* Colors.xcassets */,
+				7A84FA1F2451C4F400F2C3A0 /* Info.plist */,
+				7A84FA1C2451C4F400F2C3A0 /* LaunchScreen.storyboard */,
 			);
 			path = "mvvm-r";
 			sourceTree = "<group>";
@@ -377,6 +386,16 @@
 				7A84FA952451EAC800F2C3A0 /* FadeAnimator.swift */,
 			);
 			path = Animator;
+			sourceTree = "<group>";
+		};
+		7A85A98E2500239600A7CE02 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7A85A9912500263300A7CE02 /* Configuration.plist */,
+				7A85A9932500263F00A7CE02 /* Configuration-Debug.plist */,
+				7A85A9952500264900A7CE02 /* Configuration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		7A8E3C4C2453732900C09337 /* NavigationController */ = {
@@ -629,6 +648,8 @@
 				7A17E14A2462E9D700715718 /* .swiftlint.yml in Resources */,
 				7AF96EAC24524F0100807AFC /* Splash.storyboard in Resources */,
 				7A9C43C72454F77E00840B7E /* Colors.xcassets in Resources */,
+				7A85A9922500263300A7CE02 /* Configuration.plist in Resources */,
+				7A85A9942500263F00A7CE02 /* Configuration-Debug.plist in Resources */,
 				7A84FA1E2451C4F400F2C3A0 /* LaunchScreen.storyboard in Resources */,
 				7A84FA1B2451C4F400F2C3A0 /* Assets.xcassets in Resources */,
 			);
@@ -711,6 +732,7 @@
 				7A9C43B12454E08800840B7E /* MovieDetailController.swift in Sources */,
 				7A9C43BC2454EDF000840B7E /* MovieDetailTopView.swift in Sources */,
 				7A84FA802451E5A000F2C3A0 /* SearchMoviesViewModel.swift in Sources */,
+				7A85A9962500264900A7CE02 /* Configuration.swift in Sources */,
 				7A84FA142451C4F200F2C3A0 /* SceneDelegate.swift in Sources */,
 				7A9C43B32454E23500840B7E /* MovieDetailViewModel.swift in Sources */,
 				7A8E3C4624536D0D00C09337 /* PlaceOnWindowTransition.swift in Sources */,
@@ -821,6 +843,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "mvvm-r/mvvm-r-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -874,6 +897,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "mvvm-r/mvvm-r-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

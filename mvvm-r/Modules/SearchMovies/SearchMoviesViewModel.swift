@@ -6,10 +6,6 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import UIKit
-import ApiDataProvider
-import UIComponents
-
 protocol SearchMoviesViewModelDataSource: AnyObject {
     var title: String { get }
     var numberOfItems: Int { get }
@@ -23,8 +19,7 @@ protocol SearchMoviesViewModelEventSource: AnyObject {
 }
 
 protocol SearchMoviesViewModelProtocol: SearchMoviesViewModelDataSource, SearchMoviesViewModelEventSource {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
+    func searchBarSearchButtonClicked(_ searchText: String?)
     func didSelectItem(at indexPath: IndexPath)
 }
 
@@ -48,29 +43,24 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     
     private var page = 0
     private var keyword: String?
-    private var movies: [Movie] = []
     private var cellItems: [MovieCellProtocol] = []
     
-    private let router: SearchMoviesRouter
+    private let router: SearchMoviesRouter.Routes
     private let dataProvider: DataProviderProtocol
     
-    init(router: SearchMoviesRouter, dataProvider: DataProviderProtocol) {
+    init(router: SearchMoviesRouter.Routes, dataProvider: DataProviderProtocol) {
         self.router = router
         self.dataProvider = dataProvider
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.keyword = searchBar.text
+    func searchBarSearchButtonClicked(_ searchText: String?) {
+        self.keyword = searchText
         fetchMovies(page: 0)
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
     func didSelectItem(at indexPath: IndexPath) {
-        let movie = movies[indexPath.row]
-        router.pushMovieDetailController(movie: movie)
+        guard let imdbId = cellItems[indexPath.row].imdbId else { return }
+        router.pushMovieDetailController(imdbId: imdbId)
     }
     
     func fetchMovies(page: Int) {
@@ -90,12 +80,10 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
             switch result {
             case .success(let response):
                 if page == 0 {
-                    self.movies.removeAll()
                     self.cellItems.removeAll()
                 }
                 self.page = page + 1
                 if let search = response.search {
-                    self.movies.append(contentsOf: search)
                     let cellItems = search.map({ MovieCellViewModel(movie: $0) })
                     self.cellItems.append(contentsOf: cellItems)
                 }

@@ -6,13 +6,11 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import UIComponents
-import ApiDataProvider
-
 extension MovieCellViewModel {
     
     convenience init(movie: Movie) {
         self.init()
+        imdbId = movie.imdbId
         if let poster = movie.poster {
             imageUrl = URL(string: poster)
         }

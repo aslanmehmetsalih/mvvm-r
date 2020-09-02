@@ -26,7 +26,7 @@ public struct MovieDetail: Decodable {
     public let metascore: String?
     public let imdbRating: String?
     public let imdbVotes: String?
-    public let imdbID: String?
+    public let imdbId: String?
     public let type: MovieType?
     public let totalSeasons: String?
     public let dvd: String?
@@ -54,7 +54,7 @@ public struct MovieDetail: Decodable {
         case metascore      = "Metascore"
         case imdbRating
         case imdbVotes
-        case imdbID
+        case imdbId         = "imdbID"
         case type           = "Type"
         case totalSeasons
         case dvd            = "DVD"

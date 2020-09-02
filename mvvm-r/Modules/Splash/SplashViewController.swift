@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ApiDataProvider
 
 final class SplashViewController: UIViewController {
     
@@ -18,7 +17,7 @@ final class SplashViewController: UIViewController {
         let router = SplashRouter()
         router.viewController = self
         
-        let dataProvider = ApiDataProvider()
+        let dataProvider = ApiDataProvider(omdbApiKey: Configuration.shared.omdbApiKey)
         let viewModel = SplashViewModel(router: router, dataProvider: dataProvider)
         self.viewModel = viewModel
         

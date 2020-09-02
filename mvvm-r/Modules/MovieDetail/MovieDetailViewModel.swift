@@ -6,9 +6,6 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import Foundation
-import ApiDataProvider
-
 protocol MovieDetailDataSource: AnyObject {
     var topViewModel: MovieDetailTopViewProtocol? { get }
     var imdbViewModel: MovieDetailImdbViewProtocol? { get }
@@ -46,19 +43,18 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     var setLoading: BoolClosure?
     var didSuccessFetchMovieDetail: EmptyClosure?
     
-    private let router: MovieDetailRouter
+    private let router: MovieDetailRouter.Routes
     private let dataProvider: DataProviderProtocol
-    private var movie: Movie
+    private var imdbId: String
     private var movieDetail: MovieDetail?
     
-    init(router: MovieDetailRouter, dataProvider: DataProviderProtocol, movie: Movie) {
+    init(router: MovieDetailRouter.Routes, dataProvider: DataProviderProtocol, imdbId: String) {
         self.router = router
         self.dataProvider = dataProvider
-        self.movie = movie
+        self.imdbId = imdbId
     }
     
     func viewDidLoad() {
-        guard let imdbId = movie.imdbId else { return }
         setLoading?(true)
         let request = GetMovieDetailRequest(id: imdbId)
         dataProvider.getData(for: request) { [weak self] (result) in
@@ -75,7 +71,6 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     }
     
     func imdbButtonTouchUpInside() {
-        guard let imdbId = movie.imdbId else { return }
         router.openIMDB(imdbId: imdbId)
     }
     

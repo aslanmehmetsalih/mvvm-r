@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ApiDataProvider
 
 protocol SearchMoviesRoute: AnyObject {
     func placeOnWindowSearchMoviesController()
@@ -17,7 +16,7 @@ extension SearchMoviesRoute where Self: RouterProtocol {
     
     func placeOnWindowSearchMoviesController() {
         let router = SearchMoviesRouter()
-        let dataProvider = ApiDataProvider()
+        let dataProvider = ApiDataProvider(omdbApiKey: Configuration.shared.omdbApiKey)
         let viewModel = SearchMoviesViewModel(router: router, dataProvider: dataProvider)
         let viewController = SearchMoviesController(viewModel: viewModel)
         router.viewController = viewController

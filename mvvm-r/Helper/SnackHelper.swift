@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftEntryKit
-import Utilities
 
 class SnackHelper {
     

@@ -6,18 +6,16 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import ApiDataProvider
-
 protocol SplashViewModelProtocol: AnyObject {
     func viewDidLoad()
 }
 
 final class SplashViewModel: SplashViewModelProtocol {
     
-    let router: SplashRouter
+    let router: SplashRouter.Routes
     let dataProvider: DataProviderProtocol
     
-    init(router: SplashRouter, dataProvider: DataProviderProtocol) {
+    init(router: SplashRouter.Routes, dataProvider: DataProviderProtocol) {
         self.router = router
         self.dataProvider = dataProvider
     }

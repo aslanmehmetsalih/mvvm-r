@@ -8,7 +8,6 @@
 
 import UIKit
 import TinyConstraints
-import UIComponents
 
 final class SearchMoviesController: UIViewController {
     
@@ -78,11 +77,11 @@ final class SearchMoviesController: UIViewController {
 extension SearchMoviesController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.searchBarSearchButtonClicked(searchBar)
+        viewModel.searchBarSearchButtonClicked(searchBar.text)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.searchBarCancelButtonClicked(searchBar)
+        searchBar.endEditing(true)
     }
     
 }

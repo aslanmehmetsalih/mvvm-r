@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import ApiDataProvider
 
 protocol MovieDetailRoute: AnyObject {
-    func pushMovieDetailController(movie: Movie)
+    func pushMovieDetailController(imdbId: String)
 }
 
 extension MovieDetailRoute where Self: RouterProtocol {
     
-    func pushMovieDetailController(movie: Movie) {
+    func pushMovieDetailController(imdbId: String) {
         let router = MovieDetailRouter()
-        let dataProvider = ApiDataProvider()
-        let viewModel = MovieDetailViewModel(router: router, dataProvider: dataProvider, movie: movie)
+        let dataProvider = ApiDataProvider(omdbApiKey: Configuration.shared.omdbApiKey)
+        let viewModel = MovieDetailViewModel(router: router, dataProvider: dataProvider, imdbId: imdbId)
         let viewController = MovieDetailController(viewModel: viewModel)
         router.viewController = viewController
         

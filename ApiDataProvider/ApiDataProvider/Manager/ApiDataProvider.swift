@@ -10,9 +10,11 @@ import Alamofire
 
 public struct ApiDataProvider: DataProviderProtocol {
     
-    private let omdbApiKey = "bf3a219a"
+    private let omdbApiKey: String
     
-    public init() {}
+    public init(omdbApiKey: String) {
+        self.omdbApiKey = omdbApiKey
+    }
     
     private func createRequest<T: RequestProtocol>(_ request: T) -> DataRequest {
         let adapter = ApiRequestAdapter(method: request.method,
