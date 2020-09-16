@@ -6,9 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import Alamofire
-
-public struct SearchMovieRequest: RequestProtocol {
+public struct SearchMovieRequest: ApiRequest {
     
     public typealias ResponseType = ArrayResponse<Movie>
     

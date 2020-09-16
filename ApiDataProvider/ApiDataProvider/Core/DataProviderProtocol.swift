@@ -6,8 +6,6 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import Alamofire
-
 public typealias DataProviderResult<T: Decodable> = ((Result<T, Error>) -> Void)
 
 public protocol DataProviderProtocol {

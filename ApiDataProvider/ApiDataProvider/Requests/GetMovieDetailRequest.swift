@@ -6,9 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import Alamofire
-
-public class GetMovieDetailRequest: RequestProtocol {
+public class GetMovieDetailRequest: ApiRequest {
     
     public typealias ResponseType = MovieDetail
     

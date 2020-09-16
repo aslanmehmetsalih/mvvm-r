@@ -6,6 +6,4 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-import Foundation
-
 public typealias RequestParameters = [String: Any]

@@ -16,20 +16,3 @@ public protocol RequestProtocol {
     var encoding: RequestEncoding { get }
     var url: String { get }
 }
-
-extension RequestProtocol {
-    public var encoding: RequestEncoding {
-        switch method {
-        case .get:
-            return .url
-        default:
-            return .json
-        }
-    }
-}
-
-extension RequestProtocol {
-    public var url: String {
-        return "http://www.omdbapi.com/" + path
-    }
-}
