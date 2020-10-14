@@ -7,22 +7,16 @@
 
 import UIKit
 
-protocol Closable: AnyObject {
-    func close()
-}
-
 protocol RouterProtocol: AnyObject {
-    associatedtype V: UIViewController
+    var viewController: UIViewController? { get }
     
-    var viewController: V? { get }
-    
+    func close()
     func open(_ viewController: UIViewController, transition: Transition)
 }
 
-class Router<U>: RouterProtocol, Closable where U: UIViewController {
-    typealias V = U
+class Router: RouterProtocol {
     
-    weak var viewController: V?
+    weak var viewController: UIViewController?
     var openTransition: Transition?
 
     func open(_ viewController: UIViewController, transition: Transition) {

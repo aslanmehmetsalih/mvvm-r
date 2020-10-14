@@ -18,18 +18,15 @@ protocol MovieDetailDataSource: AnyObject {
 }
 
 protocol MovieDetailEventSource: AnyObject {
-    var setLoading: BoolClosure? { get set }
-    var didSuccessFetchMovieDetail: EmptyClosure? { get set }
+    var fetchMovieDetailDidSuccess: EmptyClosure? { get set }
 }
 
 protocol MovieDetailProtocol: MovieDetailDataSource, MovieDetailEventSource {
-    
     func viewDidLoad()
     func imdbButtonTouchUpInside()
-    
 }
 
-final class MovieDetailViewModel: MovieDetailProtocol {
+final class MovieDetailViewModel: BaseViewModel<MovieDetailRouter>, MovieDetailProtocol {
     
     var topViewModel: MovieDetailTopViewProtocol?
     var imdbViewModel: MovieDetailImdbViewProtocol?
@@ -40,30 +37,27 @@ final class MovieDetailViewModel: MovieDetailProtocol {
     var directorViewModel: InfoViewProtocol?
     var productionViewModel: InfoViewProtocol?
     
-    var setLoading: BoolClosure?
-    var didSuccessFetchMovieDetail: EmptyClosure?
+    var fetchMovieDetailDidSuccess: EmptyClosure?
     
-    private let router: MovieDetailRouter.Routes
-    private let dataProvider: DataProviderProtocol
-    private var imdbId: String
+    private let imdbId: String
     private var movieDetail: MovieDetail?
     
-    init(router: MovieDetailRouter.Routes, dataProvider: DataProviderProtocol, imdbId: String) {
-        self.router = router
-        self.dataProvider = dataProvider
+    init(router: MovieDetailRouter, dataProvider: DataProviderProtocol, imdbId: String) {
         self.imdbId = imdbId
+        super.init(router: router, dataProvider: dataProvider)
     }
     
-    func viewDidLoad() {
-        setLoading?(true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showLoading?()
         let request = GetMovieDetailRequest(id: imdbId)
         dataProvider.getData(for: request) { [weak self] (result) in
             guard let self = self else { return }
-            self.setLoading?(false)
+            self.hideLoading?()
             switch result {
             case .success(let response):
                 self.set(movieDetail: response)
-                self.didSuccessFetchMovieDetail?()
+                self.fetchMovieDetailDidSuccess?()
             case .failure(let error):
                 SnackHelper.showSnack(message: error.localizedDescription)
             }

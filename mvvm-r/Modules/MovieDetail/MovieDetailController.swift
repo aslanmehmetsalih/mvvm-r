@@ -103,10 +103,7 @@ final class MovieDetailController: UIViewController {
     }
     
     private func setViewModelEvents() {
-        viewModel.setLoading = { [weak self] showLoading in
-            showLoading ? self?.showLoadingDialog() : self?.hideLoadingDialog()
-        }
-        viewModel.didSuccessFetchMovieDetail = { [weak self] in
+        viewModel.fetchMovieDetailDidSuccess = { [weak self] in
             self?.topView.set(viewModel: self?.viewModel.topViewModel)
             self?.imdbView.set(viewModel: self?.viewModel.imdbViewModel)
             self?.avardsView.set(viewModel: self?.viewModel.avardsViewModel)

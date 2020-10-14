@@ -6,6 +6,6 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-final class MovieDetailRouter: Router<MovieDetailController>, MovieDetailRouter.Routes {
+final class MovieDetailRouter: Router, MovieDetailRouter.Routes {
     typealias Routes = ImdbRoute
 }

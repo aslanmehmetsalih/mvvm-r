@@ -14,8 +14,7 @@ protocol SearchMoviesViewModelDataSource: AnyObject {
 }
 
 protocol SearchMoviesViewModelEventSource: AnyObject {
-    var setLoading: BoolClosure? { get set }
-    var didSuccessFetchMovies: EmptyClosure? { get set }
+    var fetchMoviesDidSuccess: EmptyClosure? { get set }
 }
 
 protocol SearchMoviesViewModelProtocol: SearchMoviesViewModelDataSource, SearchMoviesViewModelEventSource {
@@ -23,14 +22,13 @@ protocol SearchMoviesViewModelProtocol: SearchMoviesViewModelDataSource, SearchM
     func didSelectItem(at indexPath: IndexPath)
 }
 
-final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
+final class SearchMoviesViewModel: BaseViewModel<SearchMoviesRouter>, SearchMoviesViewModelProtocol {
     
     var title: String {
         return "Movieee"
     }
     
-    var setLoading: BoolClosure?
-    var didSuccessFetchMovies: EmptyClosure?
+    var fetchMoviesDidSuccess: EmptyClosure?
     
     var numberOfItems: Int {
         return cellItems.count
@@ -44,14 +42,6 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
     private var page = 0
     private var keyword: String?
     private var cellItems: [MovieCellProtocol] = []
-    
-    private let router: SearchMoviesRouter.Routes
-    private let dataProvider: DataProviderProtocol
-    
-    init(router: SearchMoviesRouter.Routes, dataProvider: DataProviderProtocol) {
-        self.router = router
-        self.dataProvider = dataProvider
-    }
     
     func searchBarSearchButtonClicked(_ searchText: String?) {
         self.keyword = searchText
@@ -69,13 +59,13 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
             return
         }
         if page == 0 {
-            setLoading?(true)
+            showLoading?()
         }
         let request = SearchMovieRequest(keyword: keyword, page: page + 1)
         dataProvider.getData(for: request) { [weak self] (result) in
             guard let self = self else { return }
             if page == 0 {
-                self.setLoading?(false)
+                self.hideLoading?()
             }
             switch result {
             case .success(let response):
@@ -87,7 +77,7 @@ final class SearchMoviesViewModel: SearchMoviesViewModelProtocol {
                     let cellItems = search.map({ MovieCellViewModel(movie: $0) })
                     self.cellItems.append(contentsOf: cellItems)
                 }
-                self.didSuccessFetchMovies?()
+                self.fetchMoviesDidSuccess?()
             case .failure(let error):
                 if page == 0 {
                     SnackHelper.showSnack(message: error.localizedDescription)

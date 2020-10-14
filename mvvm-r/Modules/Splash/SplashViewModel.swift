@@ -10,17 +10,9 @@ protocol SplashViewModelProtocol: AnyObject {
     func viewDidLoad()
 }
 
-final class SplashViewModel: SplashViewModelProtocol {
+final class SplashViewModel: BaseViewModel<SplashRouter>, SplashViewModelProtocol {
     
-    let router: SplashRouter.Routes
-    let dataProvider: DataProviderProtocol
-    
-    init(router: SplashRouter.Routes, dataProvider: DataProviderProtocol) {
-        self.router = router
-        self.dataProvider = dataProvider
-    }
-    
-    func viewDidLoad() {
+    override func viewDidLoad() {
         router.placeOnWindowSearchMoviesController()
     }
     

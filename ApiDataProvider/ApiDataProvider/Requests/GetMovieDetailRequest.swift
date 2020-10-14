@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-public class GetMovieDetailRequest: ApiRequest {
+public class GetMovieDetailRequest: OMDBAPIRequest {
     
     public typealias ResponseType = MovieDetail
     

@@ -6,6 +6,6 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-final class SearchMoviesRouter: Router<SearchMoviesController>, SearchMoviesRouter.Routes {
+final class SearchMoviesRouter: Router, SearchMoviesRouter.Routes {
      typealias Routes = MovieDetailRoute
 }

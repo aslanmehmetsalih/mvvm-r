@@ -8,20 +8,10 @@
 
 import UIKit
 
-final class SplashViewController: UIViewController {
-    
-    private weak var viewModel: SplashViewModelProtocol?
-    
+final class SplashViewController: BaseViewController<SplashViewModel> {
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        let router = SplashRouter()
-        router.viewController = self
-        
-        let dataProvider = ApiDataProvider(omdbApiKey: Configuration.shared.omdbApiKey)
-        let viewModel = SplashViewModel(router: router, dataProvider: dataProvider)
-        self.viewModel = viewModel
-        
-        self.viewModel?.viewDidLoad()
     }
     
 }

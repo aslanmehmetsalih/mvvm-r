@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-public struct SearchMovieRequest: ApiRequest {
+public struct SearchMovieRequest: OMDBAPIRequest {
     
     public typealias ResponseType = ArrayResponse<Movie>
     

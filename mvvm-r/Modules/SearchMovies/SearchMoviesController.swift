@@ -9,7 +9,7 @@
 import UIKit
 import TinyConstraints
 
-final class SearchMoviesController: UIViewController {
+final class SearchMoviesController: BaseViewController<SearchMoviesViewModel> {
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController()
@@ -27,19 +27,6 @@ final class SearchMoviesController: UIViewController {
         collectionView.dataSource = self
         return collectionView
     }()
-    
-    let viewModel: SearchMoviesViewModelProtocol
-    
-    init(viewModel: SearchMoviesViewModelProtocol) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    //swiftlint:disable fatal_error unavailable_function
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    //swiftlint:enable fatal_error unavailable_function
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +51,7 @@ final class SearchMoviesController: UIViewController {
     }
     
     private func setViewModelEvents() {
-        viewModel.setLoading = { [weak self] showLoading in
-            showLoading ? self?.showLoadingDialog() : self?.hideLoadingDialog()
-        }
-        viewModel.didSuccessFetchMovies = { [weak self] in
+        viewModel.fetchMoviesDidSuccess = { [weak self] in
             self?.collectionView.reloadData()
         }
     }

@@ -6,9 +6,9 @@
 //  Copyright © 2020 Mehmet Salih Aslan. All rights reserved.
 //
 
-public typealias ApiRequest = RequestProtocol
+public typealias OMDBAPIRequest = RequestProtocol
 
-extension ApiRequest {
+extension OMDBAPIRequest {
     public var encoding: RequestEncoding {
         switch method {
         case .get:
@@ -19,7 +19,7 @@ extension ApiRequest {
     }
 }
 
-extension ApiRequest {
+extension OMDBAPIRequest {
     public var url: String {
         return "http://www.omdbapi.com/" + path
     }

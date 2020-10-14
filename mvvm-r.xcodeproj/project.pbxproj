@@ -36,7 +36,6 @@
 		7A8E3C4E2453733700C09337 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C4D2453733700C09337 /* BaseNavigationController.swift */; };
 		7A8E3C5124537C1600C09337 /* SnackHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C5024537C1600C09337 /* SnackHelper.swift */; };
 		7A8E3C5924537E1A00C09337 /* LoadingDialogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C5824537E1A00C09337 /* LoadingDialogHelper.swift */; };
-		7A8E3C5B24537E8700C09337 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C5A24537E8700C09337 /* UIViewController+Extensions.swift */; };
 		7A8E3C5E24537F4100C09337 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E3C5D24537F4100C09337 /* Constants.swift */; };
 		7A9C43AB2454E03100840B7E /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C43A92454E03100840B7E /* InfoView.swift */; };
 		7A9C43AC2454E03100840B7E /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C43AA2454E03100840B7E /* InfoViewModel.swift */; };
@@ -53,6 +52,9 @@
 		7A9C43CB2454F7B200840B7E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C43CA2454F7B200840B7E /* Colors.swift */; };
 		7A9C43CD2454FB6A00840B7E /* MovieDetailImdbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C43CC2454FB6A00840B7E /* MovieDetailImdbView.swift */; };
 		7A9C43CF2454FB7300840B7E /* MovieDetailImdbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C43CE2454FB7300840B7E /* MovieDetailImdbViewModel.swift */; };
+		7AAFF67D253750C000271319 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFF67C253750C000271319 /* BaseViewController.swift */; };
+		7AAFF681253750CB00271319 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFF680253750CB00271319 /* BaseViewModel.swift */; };
+		7AAFF6912537531800271319 /* LoadingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAFF6902537531800271319 /* LoadingProtocol.swift */; };
 		7ADE197C24C0B87600295A54 /* ApiDataProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADE197B24C0B87600295A54 /* ApiDataProvider.framework */; };
 		7ADE197D24C0B87600295A54 /* ApiDataProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADE197B24C0B87600295A54 /* ApiDataProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7ADE19B024C0BC5800295A54 /* UIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADE19AF24C0BC5800295A54 /* UIComponents.framework */; };
@@ -67,7 +69,6 @@
 		7AF96EA624524D4900807AFC /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF96EA524524D4900807AFC /* SplashViewController.swift */; };
 		7AF96EA824524D6100807AFC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF96EA724524D6100807AFC /* SplashViewModel.swift */; };
 		7AF96EAA24524D6A00807AFC /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF96EA924524D6A00807AFC /* SplashRouter.swift */; };
-		7AF96EAC24524F0100807AFC /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF96EAB24524F0100807AFC /* Splash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,7 +142,6 @@
 		7A8E3C4D2453733700C09337 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		7A8E3C5024537C1600C09337 /* SnackHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackHelper.swift; sourceTree = "<group>"; };
 		7A8E3C5824537E1A00C09337 /* LoadingDialogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDialogHelper.swift; sourceTree = "<group>"; };
-		7A8E3C5A24537E8700C09337 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		7A8E3C5D24537F4100C09337 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7A9C43A92454E03100840B7E /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		7A9C43AA2454E03100840B7E /* InfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
@@ -158,6 +158,9 @@
 		7A9C43CA2454F7B200840B7E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7A9C43CC2454FB6A00840B7E /* MovieDetailImdbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailImdbView.swift; sourceTree = "<group>"; };
 		7A9C43CE2454FB7300840B7E /* MovieDetailImdbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailImdbViewModel.swift; sourceTree = "<group>"; };
+		7AAFF67C253750C000271319 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7AAFF680253750CB00271319 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		7AAFF6902537531800271319 /* LoadingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProtocol.swift; sourceTree = "<group>"; };
 		7ADE192924C0B35D00295A54 /* DataProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ADE197B24C0B87600295A54 /* ApiDataProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ApiDataProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ADE19AF24C0BC5800295A54 /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +171,6 @@
 		7AF96EA524524D4900807AFC /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		7AF96EA724524D6100807AFC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		7AF96EA924524D6A00807AFC /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
-		7AF96EAB24524F0100807AFC /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,17 +279,18 @@
 		7A84FA102451C4F200F2C3A0 /* mvvm-r */ = {
 			isa = PBXGroup;
 			children = (
+				7AAFF696253755ED00271319 /* AppDelegate */,
+				7AAFF68F2537531100271319 /* Protocol */,
 				7A85A98E2500239600A7CE02 /* Configuration */,
 				7A9C43C82454F7A200840B7E /* Values */,
 				7A9C43A72454E01D00840B7E /* CustomViews */,
 				7A8E3C5C24537F3600C09337 /* Constants */,
 				7A84FA942451EABF00F2C3A0 /* Animator */,
 				7A84FA812451E9F000F2C3A0 /* Routing */,
+				7ADE1A4224C19BAC00295A54 /* UIComponents */,
 				7A84FA5C2451CE8100F2C3A0 /* Extensions */,
 				7A8E3C4F24537C0800C09337 /* Helper */,
 				7A84FA752451E4F600F2C3A0 /* Modules */,
-				7A84FA112451C4F200F2C3A0 /* AppDelegate.swift */,
-				7A84FA132451C4F200F2C3A0 /* SceneDelegate.swift */,
 				7A85A98A2500213100A7CE02 /* mvvm-r-Bridging-Header.h */,
 				7A84FA1A2451C4F400F2C3A0 /* Assets.xcassets */,
 				7A9C43C62454F77E00840B7E /* Colors.xcassets */,
@@ -319,8 +322,6 @@
 		7A84FA5C2451CE8100F2C3A0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7ADE1A4224C19BAC00295A54 /* UIComponents */,
-				7A8E3C5A24537E8700C09337 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,6 +329,7 @@
 		7A84FA752451E4F600F2C3A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7AAFF67B253750B100271319 /* Base */,
 				7A8E3C4C2453732900C09337 /* NavigationController */,
 				7AF96EA424524D3E00807AFC /* Splash */,
 				7A84FA762451E50000F2C3A0 /* SearchMovies */,
@@ -493,6 +495,32 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
+		7AAFF67B253750B100271319 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7AAFF67C253750C000271319 /* BaseViewController.swift */,
+				7AAFF680253750CB00271319 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		7AAFF68F2537531100271319 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7AAFF6902537531800271319 /* LoadingProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7AAFF696253755ED00271319 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7A84FA112451C4F200F2C3A0 /* AppDelegate.swift */,
+				7A84FA132451C4F200F2C3A0 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		7ACF464F24FD881A000BF025 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,7 +554,6 @@
 		7AF96EA424524D3E00807AFC /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				7AF96EAB24524F0100807AFC /* Splash.storyboard */,
 				7AF96EA524524D4900807AFC /* SplashViewController.swift */,
 				7AF96EA724524D6100807AFC /* SplashViewModel.swift */,
 				7AF96EA924524D6A00807AFC /* SplashRouter.swift */,
@@ -646,7 +673,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A17E14A2462E9D700715718 /* .swiftlint.yml in Resources */,
-				7AF96EAC24524F0100807AFC /* Splash.storyboard in Resources */,
 				7A9C43C72454F77E00840B7E /* Colors.xcassets in Resources */,
 				7A85A9922500263300A7CE02 /* Configuration.plist in Resources */,
 				7A85A9942500263F00A7CE02 /* Configuration-Debug.plist in Resources */,
@@ -704,6 +730,7 @@
 				7A84FA8C2451EA3600F2C3A0 /* AppSettingsRoute.swift in Sources */,
 				7A9C43B92454EAB400840B7E /* ImdbRoute.swift in Sources */,
 				7A84FA792451E51900F2C3A0 /* SearchMoviesController.swift in Sources */,
+				7AAFF67D253750C000271319 /* BaseViewController.swift in Sources */,
 				7A9C43AB2454E03100840B7E /* InfoView.swift in Sources */,
 				7A84FA932451EA4200F2C3A0 /* Transition.swift in Sources */,
 				7A84FA852451EA1D00F2C3A0 /* Animator.swift in Sources */,
@@ -711,7 +738,6 @@
 				7AF96EA12452415500807AFC /* SearchMoviesRoute.swift in Sources */,
 				7A84FA922451EA4200F2C3A0 /* PushTransition.swift in Sources */,
 				7A8E3C5924537E1A00C09337 /* LoadingDialogHelper.swift in Sources */,
-				7A8E3C5B24537E8700C09337 /* UIViewController+Extensions.swift in Sources */,
 				7AF96EA824524D6100807AFC /* SplashViewModel.swift in Sources */,
 				7A9C43B52454E2CE00840B7E /* MovieDetailRouter.swift in Sources */,
 				7ADE1A4424C19BBE00295A54 /* MovieCellViewModel+Extensions.swift in Sources */,
@@ -728,6 +754,7 @@
 				7A84FA962451EAC800F2C3A0 /* FadeAnimator.swift in Sources */,
 				7A9C43C52454F70300840B7E /* ImdbButton.swift in Sources */,
 				7A84FA982451EB3200F2C3A0 /* NoInternetConnectionRoute.swift in Sources */,
+				7AAFF681253750CB00271319 /* BaseViewModel.swift in Sources */,
 				7A84FA842451EA1D00F2C3A0 /* Router.swift in Sources */,
 				7A9C43B12454E08800840B7E /* MovieDetailController.swift in Sources */,
 				7A9C43BC2454EDF000840B7E /* MovieDetailTopView.swift in Sources */,
@@ -737,6 +764,7 @@
 				7A9C43B32454E23500840B7E /* MovieDetailViewModel.swift in Sources */,
 				7A8E3C4624536D0D00C09337 /* PlaceOnWindowTransition.swift in Sources */,
 				7A9C43C12454EF2900840B7E /* MovieDetailTopViewModel.swift in Sources */,
+				7AAFF6912537531800271319 /* LoadingProtocol.swift in Sources */,
 				7AF96EAA24524D6A00807AFC /* SplashRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
